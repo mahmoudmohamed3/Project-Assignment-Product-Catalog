@@ -1,0 +1,109 @@
+﻿@model ProductFormViewModel
+@{
+    ViewData["Title"] = "Add New Product";
+}
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h3 class="card-title">Add Product</h3>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-controller="Product" enctype="multipart/form-data" id="Form">
+            @if (Model.ProductId > 0)
+            {
+                <input type="hidden" asp-for="ProductId" />
+            }
+            <div class="mb-10">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-5">
+                                    <div class="form-floating mb-2">
+                                        <input type="text" class="form-control form-control-solid" placeholder="Title" asp-for="ProductName_EN" />
+                                        <label asp-for="ProductName_EN"></label>
+                                    </div>
+                                    <span asp-validation-for="ProductName_EN" class="text-danger d-block"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-5">
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-solid" placeholder="Title" asp-for="ProductCode" />
+                                            <label asp-for="ProductCode"></label>
+                                        </div>
+                                        <span asp-validation-for="ProductCode" class="text-danger d-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-5">
+                                            <div class="form-floating mb-2">
+                                                <input type="text" class="form-control form-control-solid" placeholder="Title" asp-for="SKU" />
+                                                <label asp-for="SKU"></label>
+                                            </div>
+                                            <span asp-validation-for="SKU" class="text-danger d-block"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-5">
+                                                <div class="form-floating mb-2">
+                                                    <input type="text" class="form-control form-control-solid" placeholder="Title" asp-for="Price" />
+                                                    <label asp-for="Price"></label>
+                                                </div>
+                                                <span asp-validation-for="Price" class="text-danger d-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-5">
+                                                    <div class="form-floating mb-2">
+                                                        <input type="file" class="form-control form-control-solid" placeholder="Image" asp-for="Image" />
+                                                        <label asp-for="Image"></label>
+                                                    </div>
+                                                    <span asp-validation-for="Image" class="text-danger d-block"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+        </form>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary" form="Form">
+            <span class="indicator-label">
+                Save
+            </span>
+        </button>
+        <a class="btn btn-light mx-3" asp-action="Index">Cancel</a>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/assets/plugins/tinymce/tinymce.bundle.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}
