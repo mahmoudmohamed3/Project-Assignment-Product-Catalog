@@ -4,7 +4,7 @@
     {
         IEnumerable<Product> GetProducts();
         Task<bool> CreateProductAsync(ProductFormViewModel model);
-        ProductFormViewModel GetEditFormModel(int id);
+        ProductFormViewModel GetEditFormModelAsync(int id);
         Task<bool> UpdateProductAsync(ProductFormViewModel model);
         Task<bool> ToggleProductStatusAsync(int id);
     }

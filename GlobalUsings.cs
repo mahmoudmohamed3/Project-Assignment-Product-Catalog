@@ -4,3 +4,6 @@ global using Product_Catalog.Core.ViewModels;
 global using Product_Catalog.Services;
 global using Microsoft.EntityFrameworkCore;
 global using Product_Catalog.Data;
+global using System.ComponentModel.DataAnnotations;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using Microsoft.AspNetCore.Authorization;

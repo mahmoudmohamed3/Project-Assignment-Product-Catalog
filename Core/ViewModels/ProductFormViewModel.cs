@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿
 namespace Product_Catalog.Core.ViewModels
 {
     public class ProductFormViewModel

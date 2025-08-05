@@ -2,7 +2,6 @@
 
 namespace Product_Catalog.Core.Models
 {
-
     public class Product
     {
         public int ProductId { get; set; }

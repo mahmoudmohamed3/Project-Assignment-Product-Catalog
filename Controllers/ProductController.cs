@@ -1,6 +1,9 @@
 ﻿
+
 namespace Product_Catalog.Controllers
 {
+
+    [Authorize]
     public class ProductController(IProductService productService) : Controller
     {
         private readonly IProductService _productService = productService;
@@ -39,7 +42,7 @@ namespace Product_Catalog.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var model = _productService.GetEditFormModel(id);
+            var model = _productService.GetEditFormModelAsync(id);
             if (model == null)
             {
                 return NotFound();

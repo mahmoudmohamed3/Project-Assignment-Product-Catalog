@@ -1,13 +1,19 @@
-﻿namespace Product_Catalog.Services
+﻿
+namespace Product_Catalog.Services
 {
-    public class ProductService(ApplicationDbContext context,IWebHostEnvironment webHostEnvironment) : IProductService
+    public class ProductService : IProductService
     {
-        private readonly ApplicationDbContext _context = context;
-        private readonly IWebHostEnvironment _webHostEnvironment = webHostEnvironment;
+        private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly List<string> _allowedExtensions = new() { ".jpg", ".png", ".jpeg" };
         private readonly int _maxSize = 2097152;
 
-        
+        public ProductService(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
+        {
+            _context = context;
+            _webHostEnvironment = webHostEnvironment;
+        }
+
         public IEnumerable<Product> GetProducts()
         {
             return _context.Products.AsNoTracking().ToList();
@@ -57,7 +63,7 @@
             return true;
         }
 
-        public ProductFormViewModel GetEditFormModel(int id)
+        public ProductFormViewModel GetEditFormModelAsync(int id)
         {
             var product = _context.Products.Find(id);
             if (product == null)
@@ -115,6 +121,7 @@
             {
                 model.ImageUrl = product.ImageUrl;
             }
+
 
             product.ProductId = model.ProductId;
             product.ProductCode = model.ProductCode;
